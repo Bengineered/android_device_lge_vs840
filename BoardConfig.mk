@@ -4,13 +4,16 @@ USE_CAMERA_STUB := true
 -include vendor/lge/vs840/BoardConfigVendor.mk
 
 TARGET_NO_BOOTLOADER := true
-TARGET_BOARD_PLATFORM := unknown
+TARGET_BOARD_PLATFORM := msm8660
 TARGET_CPU_ABI := armeabi
 TARGET_BOOTLOADER_BOARD_NAME := vs840
+TARGET_ARCH_VARIANT :=armv7-a-neon
+TARGET_ARCH := arm
 
 BOARD_KERNEL_CMDLINE := vmalloc=450M, console=ttyDCC0,115200,n8 androidboot.hardware=qcom
 BOARD_KERNEL_BASE := 0x40200000
 BOARD_KERNEL_PAGESIZE := 2048
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x41a00000
 
 # fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x105c0000
@@ -23,6 +26,8 @@ BOARD_HAS_SDCARD_INTERNAL := true
 BOARD_HAS_INTERNAL_PARTITIONS := true
 
 TARGET_PREBUILT_KERNEL := device/lge/vs840/kernel
+#TARGET_KERNEL_CONFIG := cyanogenmod_ms840_defconfig
+#TARGET_KERNEL_SOURCE : = kernel/lge/iproj
 BOARD_CUSTOM_GRAPHICS := ../../../device/lge/vs840/recovery/graphics.c
 
 BOARD_HAS_NO_SELECT_BUTTON := true
